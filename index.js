@@ -10,10 +10,17 @@ router.get('/', function(req, res){
     res.sendFile(path.join(__dirname+'/index.html'));
 })
 
+// Configurar o middleware express.static para servir arquivos estáticos
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
 // Rota para interface.html
 app.get('/interface.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'interface.html'));
 });
+
+app.get('/perfil.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'perfil.html'));
+}); 
 
 app.use('/', router);
 

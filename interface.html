@@ -3,9 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Games</title>
 </head>
+<style>
+    .produtos {
+       display: flex;
+       justify-content: space-between;
+       /*border: solid;*/
+       margin-top: 5px;
+    }
+    .produto {
+        /*border: solid;*/
+        width: 250px;
+        height: 100px;
+    }
+
+    nav{
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .partedalogo{
+        display: flex;
+        align-items: center;
+    }
+    .partedalogo img{
+        width: 80px;
+        margin-right: 20px;
+    }
+    ul{
+        display: flex;
+        gap: 30px;
+        list-style: none;
+    }
+    a{
+        color: #111;
+        text-decoration: none;
+        font-size: 20px;
+    }
+    h1{
+        font-size: 25px;
+    }
+</style>
 <body>
+    <nav>
+        <div class="partedalogo">
+            <img src="" alt="logo">
+            <h1> Games</h1>
+            </h1>
+        </div>
     
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="/perfil.html">Perfil</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="produtos">
+            <div class="produto"><figure><img src="/assets/img/mario.png" alt="mario"></figure></div>
+            <div class="produto"><figure><img src="/assets/img/mario.png" alt="mario"></figure></div>
+            <div class="produto"><figure><img src="/assets/img/mario.png" alt="mario"></figure></div>
+        </div>
+        <div class="produtos">
+            <div class="produto"><figure><img src="/assets/img/mario.png" alt="mario"></figure></div>
+            <div class="produto"><figure><img src="/assets/img/mario.png" alt="mario"></figure></div>
+            <div class="produto"><figure><img src="/assets/img/mario.png" alt="mario"></figure></div>
+        </div>
+        <div class="produtos">
+            <div class="produto"><figure><img src="/assets/img/mario.png" alt="mario"></figure></div>
+            <div class="produto"><figure><img src="/assets/img/mario.png" alt="mario"></figure></div>
+            <div class="produto"><figure><img src="/assets/img/mario.png" alt="mario"></figure></div>
+        </div>
+    </main>
+    <footer></footer>
 </body>
 </html>
