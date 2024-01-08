@@ -1,11 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Games</title>
 </head>
 <body>
-    
+    <form id="loginForm" action="/login" method="post" style="display: block;">
+        <h1>Login</h1>
+        
+        <input type="text" id="username" name="username" placeholder="Nome" required>
+        <br>
+        
+        <input type="password" id="password" name="password" placeholder="Senha" required>
+        <br>
+        
+        <button class="botao" type="submit">Entrar</button>
+
+        <p><a  class="link" href="javascript:void(0)" onclick="showSignupForm()">Fazer Cadastro</a></p>
+    </form>
+
+    <form id="signupForm" action="/signup" method="post" style="display: none;">
+        <h1>Cadastro</h1>
+       
+        <input type="text" id="newUsername" name="newUsername" placeholder="Nome" required>
+        <br>
+       
+        <input type="email" id="newEmail" name="newEmail" placeholder="Email" required>
+        <br>
+
+        <input type="password" id="newPassword" name="newPassword" placeholder="Senha" required>
+        <br>
+
+        <button class="botao" type="submit">Cadastrar</button>
+
+        <p><a class="link" href="javascript:void(0)" onclick="showLoginForm()">Ir para Login</a></p>
+    </form>
 </body>
+<script>
+    function showSignupForm() {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('signupForm').style.display = 'block';
+    }
+
+    function showLoginForm() {
+        document.getElementById('signupForm').style.display = 'none';
+        document.getElementById('loginForm').style.display = 'block';
+    }
+</script>
 </html>
