@@ -22,7 +22,11 @@ app.get('/interface.html', function (req, res) {
 
 app.get('/perfil.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'perfil.html'));
-}); 
+});
+
+app.get('/sobre.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'sobre.html'));
+});
 
 const ipAddress = '172.16.31.36'; //Endereço IP da máquina
 const port = 3003;
