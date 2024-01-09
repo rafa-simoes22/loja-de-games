@@ -1,42 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do Usuário</title>
-    <!-- Adicione qualquer estilo adicional aqui, se necessário -->
+    <title>Games</title>
 </head>
 <body>
-    <h1>Perfil do Usuário</h1>
-
-    <div id="user-info">
-        <!-- As informações do usuário serão exibidas aqui dinamicamente usando JavaScript -->
-    </div>
-
-    <script>
-        // Use JavaScript para fazer uma solicitação AJAX para obter as informações do usuário
-        document.addEventListener('DOMContentLoaded', function() {
-            // Obtenha o ID do usuário da URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const userId = urlParams.get('userId');
-
-            // Faça uma solicitação AJAX para obter as informações do usuário
-            fetch(`/perfil/${userId}`)
-                .then(response => response.json())
-                .then(user => {
-                    // Atualize o conteúdo da div com as informações do usuário
-                    document.getElementById('user-info').innerHTML = `
-                        <p><strong>ID:</strong> ${user.id}</p>
-                        <p><strong>Nome:</strong> ${user.nome}</p>
-                        <p><strong>Email:</strong> ${user.email}</p>
-                        <!-- Adicione mais campos conforme necessário -->
-                    `;
-                })
-                .catch(error => {
-                    console.error('Erro ao obter informações do usuário:', error);
-                    // Manipule o erro conforme necessário
-                });
-        });
-    </script>
+    
 </body>
 </html>

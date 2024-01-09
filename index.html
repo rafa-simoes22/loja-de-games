@@ -6,44 +6,65 @@
     <title>Games</title>
 </head>
 <style>
-    input{
-        width: 20%;
-        height: 25px;
+    .formularios {
+        /*border: solid;*/
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 10%;
+    }
+    form {
+        /*border: solid;*/
+        padding: 25px;
+        width: 300px;
+        height: auto;
+    }
+    form input {
+        padding: 5px;
+        width: 250px;
+        height: 20px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+    }
+    form button {
+        width: 125px;
+        height: 30px;
         border-radius: 15px;
-        margin-bottom: 10px;
+        margin-left: 23%;
+        cursor: pointer;
+    }
+    form a {
+        text-decoration: none;
+        cursor: pointer;
+    }
+    form h1 {
+        font-size: 25px;
     }
 </style>
 <body>
-    <form id="loginForm" action="/login" method="post" style="display: block;">
-        <h1>Login</h1>
-        
-        <input type="text" id="username" name="username" placeholder="Nome" required>
-        <br>
-        
-        <input type="password" id="password" name="password" placeholder="Senha" required>
-        <br>
-        
-        <button class="botao" type="submit">Entrar</button>
-
-        <p><a  class="link" href="javascript:void(0)" onclick="showSignupForm()">Fazer Cadastro</a></p>
-    </form>
-
-    <form id="signupForm" action="/signup" method="post" style="display: none;">
-        <h1>Cadastro</h1>
-       
-        <input type="text" id="newUsername" name="newUsername" placeholder="Nome" required>
-        <br>
-       
-        <input type="email" id="newEmail" name="newEmail" placeholder="Email" required>
-        <br>
-
-        <input type="password" id="newPassword" name="newPassword" placeholder="Senha" required>
-        <br>
-
-        <button class="botao" type="submit">Cadastrar</button>
-
-        <p><a class="link" href="javascript:void(0)" onclick="showLoginForm()">Ir para Login</a></p>
-    </form>
+    <div class="formularios">
+        <form id="loginForm" action="/login" method="post" style="display: block;">
+            <h1>Faça seu Login</h1>
+            <input type="text" id="username" name="username" placeholder="Nome" autocomplete="off" required>
+            <br>
+            <input type="password" id="password" name="password" placeholder="Senha" autocomplete="off" required>
+            <br>
+            <button class="botao" type="submit">Entrar</button>
+            <p><a class="link" href="javascript:void(0)" onclick="showSignupForm()">Ir para Cadastro</a></p>
+        </form>
+    
+        <form id="signupForm" action="/signup" method="post" style="display: none;">
+            <h1>Faça seu Cadastro</h1>
+            <input type="text" id="newUsername" name="newUsername" placeholder="Nome" autocomplete="off" required>
+            <br>
+            <input type="email" id="newEmail" name="newEmail" placeholder="Email" autocomplete="off" required>
+            <br>
+            <input type="password" id="newPassword" name="newPassword" placeholder="Senha" autocomplete="off" required>
+            <br>
+            <button class="botao" type="submit">Cadastrar</button>
+            <p><a class="link" href="javascript:void(0)" onclick="showLoginForm()">Ir para Login</a></p>
+        </form>
+    </div>
 </body>
 <script>
     function showSignupForm() {
