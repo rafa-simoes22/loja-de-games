@@ -28,6 +28,90 @@ app.get('/sobre.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'sobre.html'));
 });
 
+app.get('/pac-man.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'pac-man.html'));
+});
+
+app.get('/space-invaders.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'space-invaders.html'));
+});
+
+app.get('/donkey-kong.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'donkey-kong.html'));
+});
+
+app.get('/galaga.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'galaga.html'));
+});
+
+app.get('/centipede.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'centipede.html'));
+});
+
+app.get('/frogger.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'frogger.html'));
+});
+
+app.get('/.html', function (req, res) {
+  res.sendFile(path.join(__dirname, '.html'));
+});
+
+app.get('/mario.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'mario.html'));
+});
+
+app.get('/zelda.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'zelda.html'));
+});
+
+app.get('/sonic.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'sonic.html'));
+});
+
+app.get('/mega-man.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'mega-man.html'));
+});
+
+app.get('/castlevania.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'castlevania.html'));
+});
+
+app.get('/metroid.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'metroid.html'));
+});
+
+app.get('/.html', function (req, res) {
+  res.sendFile(path.join(__dirname, '.html'));
+});
+
+app.get('/persia.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'persia.html'));
+});
+
+app.get('/monkey-island.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'monkey-island.html'));
+});
+
+app.get('/doom.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'doom.html'));
+});
+
+app.get('/maniac.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'maniac.html'));
+});
+
+app.get('/lemmings.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'lemmings.html'));
+});
+
+app.get('/sim-city.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'sim-city.html'));
+});
+
+app.get('/.html', function (req, res) {
+  res.sendFile(path.join(__dirname, '.html'));
+});
+
 const ipAddress = '172.16.31.36'; //Endereço IP da máquina
 const port = 3003;
 
