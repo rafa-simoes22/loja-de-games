@@ -52,8 +52,8 @@ app.get('/frogger.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'frogger.html'));
 });
 
-app.get('/.html', function (req, res) {
-  res.sendFile(path.join(__dirname, '.html'));
+app.get('/street-fighter.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'street-fighter.html'));
 });
 
 app.get('/mario.html', function (req, res) {
@@ -80,8 +80,8 @@ app.get('/metroid.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'metroid.html'));
 });
 
-app.get('/.html', function (req, res) {
-  res.sendFile(path.join(__dirname, '.html'));
+app.get('/final-fantasy.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'final-fantasy.html'));
 });
 
 app.get('/persia.html', function (req, res) {
@@ -108,8 +108,8 @@ app.get('/sim-city.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'sim-city.html'));
 });
 
-app.get('/.html', function (req, res) {
-  res.sendFile(path.join(__dirname, '.html'));
+app.get('/oregon-trail.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'oregon-trail.html'));
 });
 
 const ipAddress = '172.16.31.36'; //Endereço IP da máquina
