@@ -1,13 +1,12 @@
 const express = require('express');
-const connection = require('./conexão');
 const app = express();
 const path = require('path');
 const router = express.Router();
 const bodyParser = require('body-parser'); // Para processar os dados do formulário
 
-app.use('/', router);
-
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use('/', router);
 
 // Configurar o middleware express.static para servir arquivos estáticos
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
@@ -30,6 +29,16 @@ const port = 3003;
 
 app.listen(port, ipAddress, () => {
     console.log(`Servidor rodando em http://${ipAddress}:${port}`);
+});
+
+const mysql = require('mysql2');
+
+// Configurações de conexão
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'acesso123',
+  database: 'loja_games'
 });
 
 // Conectar ao banco de dados
