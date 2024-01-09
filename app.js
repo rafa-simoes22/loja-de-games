@@ -1,17 +1,20 @@
 const express = require('express');
+const connection = require('./conexão');
 const app = express();
 const path = require('path');
 const router = express.Router();
-const bodyParser = require('body-parser'); // Para processar os dados do formulário 
+const bodyParser = require('body-parser'); // Para processar os dados do formulário
+
+app.use('/', router);
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Configurar o middleware express.static para servir arquivos estáticos
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 router.get('/', function(req, res){
     res.sendFile(path.join(__dirname+'/index.html'));
 })
-
-// Configurar o middleware express.static para servir arquivos estáticos
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // Rota para interface.html
 app.get('/interface.html', function (req, res) {
@@ -22,23 +25,11 @@ app.get('/perfil.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'perfil.html'));
 }); 
 
-app.use('/', router);
-
 const ipAddress = '172.16.31.36'; //Endereço IP da máquina
 const port = 3003;
 
 app.listen(port, ipAddress, () => {
     console.log(`Servidor rodando em http://${ipAddress}:${port}`);
-});
-
-const mysql = require('mysql2');
-
-// Configurações de conexão
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'acesso123',
-  database: 'loja_games'
 });
 
 // Conectar ao banco de dados
@@ -59,7 +50,7 @@ router.post('/login', function(req, res) {
   connection.query(query, [username, password], (err, results) => {
       if (err) {
           console.error('Erro ao consultar o banco de dados:', err);
-          res.status(500).send('Erro interno.');
+          res.status(500).send('Erro ao consultar o banco de dados.');
       } else {
           if (results.length > 0) {
               const userId = results[0].id;
@@ -82,7 +73,7 @@ router.post('/signup', function(req, res) {
   connection.query(query, [newUsername, newPassword, newEmail], (err, results) => {
       if (err) {
           console.error('Erro ao cadastrar usuário:', err);
-          res.status(500).send('Erro interno.');
+          res.status(500).send('Erro ao cadastrar usuário.');
       } else {
           res.send('Cadastro bem-sucedido! Você pode fazer o login agora.');
       }
