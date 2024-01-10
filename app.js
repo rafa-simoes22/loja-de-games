@@ -177,3 +177,39 @@ router.post('/signup', function(req, res) {
   });
 });
 
+// Rota para processar avaliações
+router.post('/avaliacoes', function(req, res) {
+  const userId = req.body.userId;
+
+  if (!userId) {
+      return res.status(400).send('ID do usuário não encontrado no corpo da solicitação.');
+  }
+
+  const { star } = req.body;
+
+  // Verifica se o usuário já avaliou o produto
+  const checkExistingQuery = 'SELECT * FROM avaliacoes WHERE user_id = ?';
+  connection.query(checkExistingQuery, [userId], (checkErr, checkResults) => {
+      if (checkErr) {
+          console.error('Erro ao verificar avaliação existente:', checkErr);
+          return res.status(500).send('Erro ao verificar avaliação existente.');
+      }
+
+      if (checkResults.length > 0) {
+          return res.status(400).send('Você já avaliou o produto.');
+      }
+
+      // Insere a avaliação no banco de dados
+      const insertQuery = 'INSERT INTO avaliacoes (user_id, star) VALUES (?, ?)';
+      connection.query(insertQuery, [userId, star], (err, results) => {
+          if (err) {
+              console.error('Erro ao inserir avaliação no banco de dados:', err);
+              res.status(500).send('Erro ao salvar avaliação no banco de dados.');
+          } else {
+              res.send('Avaliação salva com sucesso!');
+          }
+      });
+  });
+});
+
+
