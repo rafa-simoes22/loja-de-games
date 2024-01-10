@@ -20,19 +20,54 @@
     .cont h2 {
         font-size: 30px;
     }
-    input[type="checkbox"] {
+    #star-rating input[type="checkbox"] {
         display: none;
     }
-
-    label {
+    #star-rating label {
         cursor: pointer;
         font-size: 2em;
         color: #ccc;
         margin: 0 0.1em;
     }
-
-    input[type="checkbox"]:checked + label {
+    #star-rating input[type="checkbox"]:checked + label {
         color: #ffbf00; /* Cor quando a estrela está marcada */
+    }
+    .comments-container {
+        max-width: 600px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .comments-container h2 {
+        text-align: center;
+        color: #333;
+    }
+    .comments-container form {
+        display: flex;
+        flex-direction: column;
+    }
+    .comments-container label {
+        margin-bottom: 8px;
+        color: #333;
+    }
+    .comments-container input,
+    textarea {
+        padding: 8px;
+        margin-bottom: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .comments-container button {
+        padding: 10px;
+        background-color: #297fdb;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .comments-container button:hover {
+        background-color: #0056b3;
     }
 </style>
 <body>
@@ -59,5 +94,13 @@
         </div>
         <button type="submit">Enviar</button>
     </form>
+    <div class="comments-container">
+        <h2>Deixe um Comentário</h2>
+        <form action="" method="post">
+            <label for="comment">Comentário:</label>
+            <textarea id="comment" name="comment" rows="4" required></textarea>
+            <button type="submit">Enviar Comentário</button>
+        </form>
+    </div>
 </body>
 </html>
