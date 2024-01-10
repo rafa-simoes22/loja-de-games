@@ -21,6 +21,20 @@
     .cont h2 {
         font-size: 30px;
     }
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    label {
+        cursor: pointer;
+        font-size: 2em;
+        color: #ccc;
+        margin: 0 0.1em;
+    }
+
+    input[type="checkbox"]:checked + label {
+        color: #ffbf00; /* Cor quando a estrela está marcada */
+    }
 </style>
 <body>
     <div class="cont">
@@ -29,5 +43,22 @@
         <p>Criado por Shigeru Miyamoto, The Legend of Zelda é um jogo de aventura que se destaca pela exploração e quebra-cabeças desafiadores. O protagonista, Link, parte em uma jornada para resgatar a princesa Zelda e derrotar o malvado Ganon.</p>
         <figure><img src="/assets/img/zelda gif.gif" alt=""></figure>
     </div>
+    <form action="" method="post">
+        <h1>Avaliações</h1>
+        <p>Por favor, avalie nosso serviço:</p>
+        <div id="star-rating">
+            <input type="checkbox" id="star1" data-rating="1"/>
+            <label for="star1">&#9733;</label>
+            <input type="checkbox" id="star2" data-rating="2"/>
+            <label for="star2">&#9733;</label>
+            <input type="checkbox" id="star3" data-rating="3"/>
+            <label for="star3">&#9733;</label>
+            <input type="checkbox" id="star4" data-rating="4"/>
+            <label for="star4">&#9733;</label>
+            <input type="checkbox" id="star5" data-rating="5"/>
+            <label for="star5">&#9733;</label>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
 </body>
 </html>

@@ -21,6 +21,20 @@
     .cont h2 {
         font-size: 30px;
     }
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    label {
+        cursor: pointer;
+        font-size: 2em;
+        color: #ccc;
+        margin: 0 0.1em;
+    }
+
+    input[type="checkbox"]:checked + label {
+        color: #ffbf00; /* Cor quando a estrela está marcada */
+    }
 </style>
 <body>
     <div class="cont">
@@ -29,5 +43,22 @@
         <p>Pac-Man, criado pela Namco, é um ícone da cultura dos videogames. O jogador controla um amarelo e redondo personagem que deve comer pontos em um labirinto enquanto evita fantasmas. Simples, mas desafiador, Pac-Man tornou-se um fenômeno global e ainda é lembrado como um dos jogos mais influentes da história.</p>
         <figure><img src="/assets/img/pac man gif.gif" alt=""></figure>
     </div>
+    <form action="" method="post">
+        <h1>Avaliações</h1>
+        <p>Por favor, avalie nosso serviço:</p>
+        <div id="star-rating">
+            <input type="checkbox" id="star1" data-rating="1"/>
+            <label for="star1">&#9733;</label>
+            <input type="checkbox" id="star2" data-rating="2"/>
+            <label for="star2">&#9733;</label>
+            <input type="checkbox" id="star3" data-rating="3"/>
+            <label for="star3">&#9733;</label>
+            <input type="checkbox" id="star4" data-rating="4"/>
+            <label for="star4">&#9733;</label>
+            <input type="checkbox" id="star5" data-rating="5"/>
+            <label for="star5">&#9733;</label>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
 </body>
 </html>

@@ -21,6 +21,20 @@
     .cont h2 {
         font-size: 30px;
     }
+    input[type="checkbox"] {
+        display: none;
+    }
+
+    label {
+        cursor: pointer;
+        font-size: 2em;
+        color: #ccc;
+        margin: 0 0.1em;
+    }
+
+    input[type="checkbox"]:checked + label {
+        color: #ffbf00; /* Cor quando a estrela está marcada */
+    }
 </style>
 <body>
     <div class="cont">
@@ -29,5 +43,22 @@
         <p>Este clássico da Nintendo é um marco nos jogos de plataforma. Apresentando Mario, o encanador, os jogadores embarcam em uma jornada para resgatar a Princesa Peach do vilão Bowser. Super Mario Bros. é conhecido por seus níveis criativos e pela trilha sonora inesquecível.</p>
         <figure><img src="/assets/img/mario gif.gif" alt=""></figure>
     </div>
+    <form action="" method="post">
+        <h1>Avaliações</h1>
+        <p>Por favor, avalie nosso serviço:</p>
+        <div id="star-rating">
+            <input type="checkbox" id="star1" data-rating="1"/>
+            <label for="star1">&#9733;</label>
+            <input type="checkbox" id="star2" data-rating="2"/>
+            <label for="star2">&#9733;</label>
+            <input type="checkbox" id="star3" data-rating="3"/>
+            <label for="star3">&#9733;</label>
+            <input type="checkbox" id="star4" data-rating="4"/>
+            <label for="star4">&#9733;</label>
+            <input type="checkbox" id="star5" data-rating="5"/>
+            <label for="star5">&#9733;</label>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
 </body>
 </html>
