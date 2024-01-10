@@ -24,8 +24,8 @@ app.get('/perfil.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'perfil.html'));
 });
 
-app.get('/sobre.html', function (req, res) {
-  res.sendFile(path.join(__dirname, 'sobre.html'));
+app.get('/carrinho.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'carrinho.html'));
 });
 
 app.get('/pac-man.html', function (req, res) {
