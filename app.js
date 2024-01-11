@@ -12,12 +12,12 @@ app.use('/', router);
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 router.get('/', function(req, res){
-    res.sendFile(path.join(__dirname+'/index.html'));
+    res.sendFile(path.join(__dirname+'/interface.html'));
 })
 
 // Rota para interface.html
-app.get('/interface.html', function (req, res) {
-  res.sendFile(path.join(__dirname, 'interface.html'));
+app.get('/index.html', function (req, res) {
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 app.get('/perfil.html', function (req, res) {
@@ -153,7 +153,7 @@ router.post('/login', function(req, res) {
               const userId = results[0].id;
 
               // Redireciona para "pagina.html" e passa o ID do usuário
-              res.redirect(`/interface.html?userId=${userId}`);
+              res.redirect(`/perfil/${userId}`);
           } else {
               res.send('Credenciais inválidas. Por favor, tente novamente.');
           }
@@ -209,6 +209,101 @@ router.post('/avaliacoes', function(req, res) {
               res.send('Avaliação salva com sucesso!');
           }
       });
+  });
+});
+
+// Rota para exibir o perfil do usuário
+router.get('/perfil/:userId', function(req, res) {
+  const userId = req.params.userId;
+
+  // Consultar o banco de dados para obter informações do usuário
+  const query = 'SELECT * FROM users WHERE id = ?';
+  connection.query(query, [userId], (err, results) => {
+    if (err) {
+      console.error('Erro ao consultar o banco de dados:', err);
+      res.status(500).send('Erro ao consultar o banco de dados.');
+    } else {
+      if (results.length > 0) {
+        const user = results[0];
+        res.send(`
+          <html>
+            <head>
+              <title>Perfil do Usuário</title>
+            </head>
+            <body>
+              <h1>Perfil do Usuário</h1>
+              <form>
+                <label for="username">Nome de usuário:</label>
+                <input type="text" id="username" name="username" value="${user.nome}" readonly>
+                <br>
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" name="email" value="${user.email}" readonly>
+                <br>
+                <a href="/perfil/editar/${userId}"><button type="button">Editar Perfil</button></a>
+              </form>
+            </body>
+          </html>
+        `);
+      } else {
+        res.status(404).send('Usuário não encontrado.');
+      }
+    }
+  });
+});
+
+// Rota para exibir o formulário de edição do perfil
+router.get('/perfil/editar/:userId', function(req, res) {
+  const userId = req.params.userId;
+
+  // Consultar o banco de dados para obter informações do usuário
+  const query = 'SELECT * FROM users WHERE id = ?';
+  connection.query(query, [userId], (err, results) => {
+    if (err) {
+      console.error('Erro ao consultar o banco de dados:', err);
+      res.status(500).send('Erro ao consultar o banco de dados.');
+    } else {
+      if (results.length > 0) {
+        const user = results[0];
+        res.send(`
+          <html>
+            <head>
+              <title>Editar Perfil</title>
+            </head>
+            <body>
+              <h1>Editar Perfil</h1>
+              <form action="/perfil/editar/${userId}" method="post">
+                <label for="username">Nome de usuário:</label>
+                <input type="text" id="username" name="username" value="${user.nome}">
+                <br>
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" name="email" value="${user.email}">
+                <br>
+                <input type="submit" value="Salvar">
+              </form>
+            </body>
+          </html>
+        `);
+      } else {
+        res.status(404).send('Usuário não encontrado.');
+      }
+    }
+  });
+});
+
+// Rota para processar a atualização do perfil
+router.post('/perfil/editar/:userId', function(req, res) {
+  const userId = req.params.userId;
+  const { username, email } = req.body;
+
+  // Atualizar as informações do usuário no banco de dados
+  const updateQuery = 'UPDATE users SET nome = ?, email = ? WHERE id = ?';
+  connection.query(updateQuery, [username, email, userId], (err, results) => {
+    if (err) {
+      console.error('Erro ao atualizar o perfil do usuário:', err);
+      res.status(500).send('Erro ao atualizar o perfil do usuário.');
+    } else {
+      res.redirect(`/perfil/${userId}`);
+    }
   });
 });
 
