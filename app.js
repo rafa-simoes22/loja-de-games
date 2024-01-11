@@ -232,26 +232,26 @@ router.get('/perfil/:userId', function(req, res) {
             </head>
             <style>
                 body {
-                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                    color: #000;
+                  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                  color: #000;
                 }
                 form {
                   max-width: 300px;
                 }
                 label {
-                    display: block;
-                    margin-bottom: 10px;
+                  display: block;
+                  margin-bottom: 10px;
                 }
                 input {
-                    width: 100%;
-                    padding: 8px;
-                    margin-bottom: 10px;
+                  width: 100%;
+                  padding: 8px;
+                  margin-bottom: 10px;
                 }
                 button {
-                    color: #000;
-                    padding: 10px;
-                    border: none;
-                    cursor: pointer;
+                  color: #000;
+                  padding: 10px;
+                  border: none;
+                  cursor: pointer;
                 }
             </style>
             <body>
@@ -265,7 +265,7 @@ router.get('/perfil/:userId', function(req, res) {
                 <br>
                 <a href="/perfil/editar/${userId}"><button type="button">Editar Perfil</button></a>
               </form>
-          </body>
+            </body>
           </html>
         `);
       } else {
@@ -294,40 +294,40 @@ router.get('/perfil/editar/:userId', function(req, res) {
               <title>Editar Perfil</title>
             </head>
             <style>
-            body {
-              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-              color: #000;
-            }
-            form {
-              max-width: 300px;
-            }
-            label {
-              display: block;
-              margin-bottom: 10px;
-            }
-            input {
-              width: 80%;
-              padding: 8px;
-              margin-bottom: 20px;
-            }
-            #botão {
-              margin-left: 3%;
-            }
-          </style>
-          <body>
-          <h1>Editar Perfil</h1>
-          <form action="/perfil/editar/${userId}" method="post">
-            <label for="username">Nome de usuário:</label>
-            <input type="text" id="username" name="username" value="${user.nome}">
-            <br>
-            <label for="email">E-mail:</label>
-            <input type="text" id="email" name="email" value="${user.email}">
-            <br>
-            <label for="email">Senha:</label>
-            <input type="text" id="senha" name="senha" value="${user.senha}">
-            <input id="botão" type="submit" value="Salvar">
-          </form>
-          </body>
+                body {
+                  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                  color: #000;
+                }
+                form {
+                  max-width: 300px;
+                }
+                label {
+                  display: block;
+                  margin-bottom: 10px;
+                }
+                input {
+                  width: 80%;
+                  padding: 8px;
+                  margin-bottom: 20px;
+                }
+                #botão {
+                  margin-left: 3%;
+                }
+            </style>
+            <body>
+                <h1>Editar Perfil</h1>
+                <form action="/perfil/editar/${userId}" method="post">
+                  <label for="username">Nome de usuário:</label>
+                  <input type="text" id="username" name="username" value="${user.nome}">
+                  <br>
+                  <label for="email">E-mail:</label>
+                  <input type="text" id="email" name="email" value="${user.email}">
+                  <br>
+                  <label for="email">Senha:</label>
+                  <input type="text" id="senha" name="senha" value="${user.senha}">
+                  <input id="botão" type="submit" value="Salvar">
+                </form>
+            </body>
           </html>
         `);
       } else {
