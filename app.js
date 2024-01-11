@@ -20,10 +20,6 @@ app.get('/index.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/perfil.html', function (req, res) {
-  res.sendFile(path.join(__dirname, 'perfil.html'));
-});
-
 app.get('/carrinho.html', function (req, res) {
   res.sendFile(path.join(__dirname, 'carrinho.html'));
 });
