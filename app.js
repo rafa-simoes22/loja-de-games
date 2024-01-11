@@ -355,18 +355,31 @@ router.post('/adicionar-ao-carrinho', function(req, res) {
   const { produto } = req.body;
 
   if (!produto) {
-    return res.status(400).send('Nome do produto não encontrado no corpo da solicitação.');
+    return res.status(400).json({ message: 'Nome do produto não encontrado no corpo da solicitação.' });
   }
 
-  // Insere o produto no carrinho
-  const insertQuery = 'INSERT INTO carrinho (produto) VALUES (?)';
-  connection.query(insertQuery, [produto], (err, results) => {
-    if (err) {
-      console.error('Erro ao adicionar produto ao carrinho:', err);
-      return res.status(500).send('Erro ao adicionar produto ao carrinho.');
+  // Verifica se o produto já está no carrinho
+  const checkExistingQuery = 'SELECT * FROM carrinho WHERE produto = ?';
+  connection.query(checkExistingQuery, [produto], (checkErr, checkResults) => {
+    if (checkErr) {
+      console.error('Erro ao verificar produto no carrinho:', checkErr);
+      return res.status(500).json({ message: 'Erro ao verificar produto no carrinho.' });
     }
 
-    res.send('Produto adicionado ao carrinho com sucesso!');
+    if (checkResults.length > 0) {
+      return res.status(400).json({ message: 'Este produto já está no carrinho.' });
+    }
+
+    // Insere o produto no carrinho
+    const insertQuery = 'INSERT INTO carrinho (produto) VALUES (?)';
+    connection.query(insertQuery, [produto], (err, results) => {
+      if (err) {
+        console.error('Erro ao adicionar produto ao carrinho:', err);
+        return res.status(500).json({ message: 'Erro ao adicionar produto ao carrinho.' });
+      }
+
+      res.json({ message: 'Produto adicionado ao carrinho com sucesso!' });
+    });
   });
 });
 

@@ -168,6 +168,19 @@
       // Envie uma requisição POST para a rota '/adicionar-ao-carrinho'
       $.post('/adicionar-ao-carrinho', { produto }, function(response) {
         console.log(response); // Exiba a resposta no console (pode ser removido em produção)
+
+        // Verifica a resposta da rota
+        if (response.message.includes('sucesso')) {
+          // Se a resposta contiver 'sucesso', o produto foi adicionado com sucesso
+          alert('Produto adicionado ao carrinho com sucesso!');
+        } else if (response.message.includes('já está no carrinho')) {
+          // Se a resposta contiver 'já está no carrinho', exibe um alerta indicando que o produto já está no carrinho
+          alert('Este produto já está no carrinho.');
+        } else {
+          // Lógica para lidar com outras respostas (opcional)
+          console.log('Resposta não reconhecida:', response);
+        }
+
         // Aqui você pode adicionar lógica adicional se necessário
       });
     });
