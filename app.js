@@ -350,3 +350,23 @@ router.post('/perfil/editar/:userId', function(req, res) {
   });
 });
 
+// Rota para adicionar um produto ao carrinho
+router.post('/adicionar-ao-carrinho', function(req, res) {
+  const { produto } = req.body;
+
+  if (!produto) {
+    return res.status(400).send('Nome do produto não encontrado no corpo da solicitação.');
+  }
+
+  // Insere o produto no carrinho
+  const insertQuery = 'INSERT INTO carrinho (produto) VALUES (?)';
+  connection.query(insertQuery, [produto], (err, results) => {
+    if (err) {
+      console.error('Erro ao adicionar produto ao carrinho:', err);
+      return res.status(500).send('Erro ao adicionar produto ao carrinho.');
+    }
+
+    res.send('Produto adicionado ao carrinho com sucesso!');
+  });
+});
+

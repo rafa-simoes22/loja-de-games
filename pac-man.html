@@ -125,7 +125,7 @@
             <figure><img src="/assets/img/pac man gif.gif" alt=""></figure>
         </div>
     
-        <button class="adicionar-ao-carrinho" data-produto="nome-do-produto">Adicionar ao Carrinho</button>
+        <button class="adicionar-ao-carrinho" data-produto="Pac-Man">Adicionar ao Carrinho</button>
     </div>
 
     <div class="intera">
@@ -159,4 +159,18 @@
         </div>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.adicionar-ao-carrinho').on('click', function() {
+      const produto = $(this).data('produto');
+
+      // Envie uma requisição POST para a rota '/adicionar-ao-carrinho'
+      $.post('/adicionar-ao-carrinho', { produto }, function(response) {
+        console.log(response); // Exiba a resposta no console (pode ser removido em produção)
+        // Aqui você pode adicionar lógica adicional se necessário
+      });
+    });
+  });
+</script>
 </html>
