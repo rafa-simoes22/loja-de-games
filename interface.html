@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games</title>
+    <title>Clássicos & Bits</title>
 </head>
 <style>
     .produtos {
@@ -20,13 +20,19 @@
     }
     .produto img {
         width: 120px;
+        height: 150px;
     }
     .produto figure {
         border: solid red 1px;
         margin: 5px;
     }
     .produto button {
-        border-radius: 10px;
+        width: 100%;
+        height: 10%;
+        border-radius: 20px;
+        border: 1px #fff;
+        background-color: burlywood;
+        color: black;
         cursor: pointer;
     }
     nav {
@@ -35,44 +41,45 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+        background-color: rgb(117, 35, 35);
     }
-    .partedalogo {
+    .logo {
         display: flex;
         align-items: center;
     }
-    .partedalogo img {
+    .logo img {
         width: 80px;
         margin-right: 20px;
     }
-    nav ul {
+    .icones {
         display: flex;
-        gap: 30px;
-        list-style: none;
     }
-    nav a {
-        color: #111;
-        text-decoration: none;
-        font-size: 20px;
+    .icones img {
+        width: 30px;
+        cursor: pointer;
     }
-    nav h1 {
+    nav p {
         font-size: 25px;
+        font-family: fantasy;
     }
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: darksalmon;
+        margin: 0;
+        padding: 0;
+        border: 0;
     }
 </style>
 <body>
     <nav>
-        <div class="partedalogo">
-            <img src="" alt="">
-            <h1> Games</h1>
-            </h1>
+        <div class="logo">
+            <img src="/assets/img/controle.png" alt="">
+            <p>Clássicos & Bits</p>
         </div>
-        <ul>
-            <li><a href="interface.html">Home</a></li>
-            <li><a href="carrinho.html">Carrinho</a></li>
-            <li><a href="perfil.html">Perfil</a></li>
-        </ul>
+        <div class="icones">
+            <figure><img src="/assets/img/carrinho.png" alt="" onclick="location = 'carrinho.html'"></figure>
+            <figure><img src="/assets/img/perfil.png" alt="" onclick="location = 'perfil.html'" ></figure>
+        </div>
     </nav>
     <section>
         <div class="produtos">
@@ -193,7 +200,7 @@
         <div class="produtos">
             <div class="produto">
                 <figure><img src="" alt=""></figure>
-                <p>Monkey Island: The Secret of Monkey Island</p>
+                <p>Monkey Island</p>
                 <p>R$29,00</p>
                 <button onclick="location = 'monkey-island.html'">Detalhes</button>
             </div>
