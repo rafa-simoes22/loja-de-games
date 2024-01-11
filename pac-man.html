@@ -3,22 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games</title>
+    <title>Clássicos & Bits</title>
 </head>
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+    /*---------------*/
     .cont {
-        border: dotted 2px;
         padding: 15px;
-        width: 350px;
+        width: 850px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     .cont img {
         width: 200px;
+        margin-left: 35%;
     }
     .cont h2 {
         font-size: 30px;
+    }
+    .prod {
+        display: flex;
+        justify-content: space-evenly;  
+    }
+    .prod button {
+        height: 10%;
+        padding: 10px;
+        background-color: #297fdb;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 15%;
+    }
+    .prod button:hover {
+        background-color: #0056b3;
+    }
+    /*---------------*/
+    .intera {
+        display: flex;
+        justify-content: space-around;
+        width: 800px;
+        margin-top: 3%;
+        margin-left: 17%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .aval {
+        max-width: 300px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
     }
     #star-rating input[type="checkbox"] {
         display: none;
@@ -32,12 +66,24 @@
     #star-rating input[type="checkbox"]:checked + label {
         color: #ffbf00; /* Cor quando a estrela está marcada */
     }
+    .aval button {
+        padding: 10px;
+        background-color: #297fdb;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+    .aval button:hover {
+        background-color: #0056b3;
+    }
+    /*---------------*/
     .comments-container {
-        max-width: 600px;
+        max-width: 300px;
         padding: 20px;
         background-color: #fff;
         border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     .comments-container h2 {
         text-align: center;
@@ -71,36 +117,46 @@
     }
 </style>
 <body>
-    <div class="cont">
-        <h2>Arcade Clássico:</h2>
-        <h3>Pac-Man (1980):</h3>
-        <p>Pac-Man, criado pela Namco, é um ícone da cultura dos videogames. O jogador controla um amarelo e redondo personagem que deve comer pontos em um labirinto enquanto evita fantasmas. Simples, mas desafiador, Pac-Man tornou-se um fenômeno global e ainda é lembrado como um dos jogos mais influentes da história.</p>
-        <figure><img src="/assets/img/pac man gif.gif" alt=""></figure>
-    </div>
-    <form action="" method="post">
-        <h1>Avaliações</h1>
-        <p>Por favor, avalie nosso produto:</p>
-        <div id="star-rating">
-            <input type="checkbox" id="star1" data-rating="1"/>
-            <label for="star1">&#9733;</label>
-            <input type="checkbox" id="star2" data-rating="2"/>
-            <label for="star2">&#9733;</label>
-            <input type="checkbox" id="star3" data-rating="3"/>
-            <label for="star3">&#9733;</label>
-            <input type="checkbox" id="star4" data-rating="4"/>
-            <label for="star4">&#9733;</label>
-            <input type="checkbox" id="star5" data-rating="5"/>
-            <label for="star5">&#9733;</label>
+    <div class="prod">
+        <div class="cont">
+            <h2>Arcade Clássico</h2>
+            <h3>Pac-Man (1980):</h3>
+            <p>Pac-Man, criado pela Namco, é um ícone da cultura dos videogames. O jogador controla um amarelo e redondo personagem que deve comer pontos em um labirinto enquanto evita fantasmas. Simples, mas desafiador, Pac-Man tornou-se um fenômeno global e ainda é lembrado como um dos jogos mais influentes da história.</p>
+            <figure><img src="/assets/img/pac man gif.gif" alt=""></figure>
         </div>
-        <button type="submit">Enviar</button>
-    </form>
-    <div class="comments-container">
-        <h2>Deixe um Comentário</h2>
-        <form action="" method="post">
-            <label for="comment">Comentário:</label>
-            <textarea id="comment" name="comment" rows="4" required></textarea>
-            <button type="submit">Enviar Comentário</button>
-        </form>
+    
+        <button class="adicionar-ao-carrinho" data-produto="nome-do-produto">Adicionar ao Carrinho</button>
+    </div>
+
+    <div class="intera">
+        <div class="aval">
+            <form action="" method="post">
+                <h1>Avaliações</h1>
+                <p>Por favor, avalie nosso produto:</p>
+                <div id="star-rating">
+                    <input type="checkbox" id="star1" data-rating="1"/>
+                    <label for="star1">&#9733;</label>
+                    <input type="checkbox" id="star2" data-rating="2"/>
+                    <label for="star2">&#9733;</label>
+                    <input type="checkbox" id="star3" data-rating="3"/>
+                    <label for="star3">&#9733;</label>
+                    <input type="checkbox" id="star4" data-rating="4"/>
+                    <label for="star4">&#9733;</label>
+                    <input type="checkbox" id="star5" data-rating="5"/>
+                    <label for="star5">&#9733;</label>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+
+        <div class="comments-container">
+            <h2>Deixe um Comentário</h2>
+            <form action="" method="post">
+                <label for="comment">Comentário:</label>
+                <textarea id="comment" name="comment" rows="4" required></textarea>
+                <button type="submit">Enviar Comentário</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
