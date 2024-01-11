@@ -323,6 +323,8 @@ router.get('/perfil/editar/:userId', function(req, res) {
             <label for="email">E-mail:</label>
             <input type="text" id="email" name="email" value="${user.email}">
             <br>
+            <label for="email">Senha:</label>
+            <input type="text" id="senha" name="senha" value="${user.senha}">
             <input id="botão" type="submit" value="Salvar">
           </form>
           </body>
