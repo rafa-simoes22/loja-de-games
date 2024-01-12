@@ -124,16 +124,17 @@
                 <div class="star-rating">
                     <input type="checkbox" id="star1" data-rating="1"/>
                     <label for="star1">&#9733;</label>
-                    <input type="checkbox" id="star2" data-rating="2"/>
+                    <input type="checkbox" id="star2" data-rating="1"/>
                     <label for="star2">&#9733;</label>
-                    <input type="checkbox" id="star3" data-rating="3"/>
+                    <input type="checkbox" id="star3" data-rating="1"/>
                     <label for="star3">&#9733;</label>
-                    <input type="checkbox" id="star4" data-rating="4"/>
+                    <input type="checkbox" id="star4" data-rating="1"/>
                     <label for="star4">&#9733;</label>
-                    <input type="checkbox" id="star5" data-rating="5"/>
+                    <input type="checkbox" id="star5" data-rating="1"/>
                     <label for="star5">&#9733;</label>
                 </div>
-                <button type="submit">Enviar</button>
+                <div class="ratings-card" id="resultCard"><!-- As avaliações serão exibidas aqui --></div>
+                <button type="button" onclick="enviarAvaliacao()">Enviar</button>
             </div>
 
             <div class="comments-container">
@@ -172,5 +173,18 @@
       });
     });
   });
+</script>
+<script>
+    function enviarAvaliacao() {
+        // Coletar as checkboxes marcadas
+        const checkboxes = document.querySelectorAll('.star-rating input[type="checkbox"]:checked');
+
+        // Calcular a quantidade total de checkboxes marcadas
+        const quantidade = checkboxes.length;
+
+        // Exibir a quantidade total em outro card
+        const resultCard = document.getElementById('resultCard');
+        resultCard.innerHTML = `<h4>Avaliação do Produto: ${quantidade}</h4>`;
+    }
 </script>
 </html>
