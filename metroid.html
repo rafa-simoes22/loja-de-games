@@ -3,61 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Games</title>
+    <title>Clássicos & Bits</title>
 </head>
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #dbc5a1;
     }
-    .cont {
-        border: dotted 2px;
-        padding: 15px;
-        width: 350px;
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
     }
-    .cont img {
-        width: 200px;
+    .product {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
+        background-color: #f1ddbe;
     }
-    .cont h2 {
+    .product-content {
+        flex: 1;
+        padding: 20px;
+    }
+    .product img {
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+    .product h2 {
         font-size: 30px;
+        margin-bottom: 10px;
+        color: #a54928;
     }
-    input[type="checkbox"] {
+    .product p {
+        color: #000 ;
+    }
+    .add-to-cart {
+        padding: 10px;
+        background-color: #b44d3f;
+        color: #fcfcfc;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .add-to-cart:hover {
+        background-color: #a54928;
+    }
+    .interaction-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+    .ratings-container,
+    .comments-container {
+        flex: 1;
+        max-width: 400px;
+        padding: 20px;
+        background-color: #f1ddbe;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        margin-right: 20px;
+    }
+    .comments-container form {
+        display: flex;
+        flex-direction: column;
+    }
+    .ratings-container h1,
+    .comments-container h2 {
+        text-align: center;
+        color: #a54928;
+    }
+    .star-rating input[type="checkbox"] {
         display: none;
     }
-
-    label {
+    .star-rating label {
         cursor: pointer;
         font-size: 2em;
-        color: #ccc;
+        color: #964136;
         margin: 0 0.1em;
     }
-
-    input[type="checkbox"]:checked + label {
-        color: #ffbf00; /* Cor quando a estrela está marcada */
+    .star-rating input[type="checkbox"]:checked + label {
+        color: #ffbf00;
+    }
+    .interaction-container button {
+        padding: 10px;
+        background-color: #b44d3f;
+        color: #fcfcfc;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+    .interaction-container button:hover {
+        background-color: #a54928;
     }
 </style>
 <body>
-    <div class="cont">
-        <h2>Consoles 8-bits:</h2>
-        <h3>Metroid (1986) - NES:</h3>
-        <p> Metroid, da Nintendo, é um jogo de ação e aventura que introduziu o gênero "Metroidvania". Os jogadores controlam a caçadora de recompensas Samus Aran, explorando um planeta alienígena e enfrentando inimigos para derrotar a Rainha Metroid.</p>
-        <figure><img src="/assets/img/metroid gif.gif" alt=""></figure>
-    </div>
-    <form action="" method="post">
-        <h1>Avaliações</h1>
-        <p>Por favor, avalie nosso produto:</p>
-        <div id="star-rating">
-            <input type="checkbox" id="star1" data-rating="1"/>
-            <label for="star1">&#9733;</label>
-            <input type="checkbox" id="star2" data-rating="2"/>
-            <label for="star2">&#9733;</label>
-            <input type="checkbox" id="star3" data-rating="3"/>
-            <label for="star3">&#9733;</label>
-            <input type="checkbox" id="star4" data-rating="4"/>
-            <label for="star4">&#9733;</label>
-            <input type="checkbox" id="star5" data-rating="5"/>
-            <label for="star5">&#9733;</label>
+    <div class="container">
+        <div class="product">
+            <div class="product-content">
+                <h2>Consoles 8-bits</h2>
+                <h3>Metroid (1986) - NES:</h3>
+                <p> Metroid, da Nintendo, é um jogo de ação e aventura que introduziu o gênero "Metroidvania". Os jogadores controlam a caçadora de recompensas Samus Aran, explorando um planeta alienígena e enfrentando inimigos para derrotar a Rainha Metroid.</p>
+            </div>
+            <figure><img src="/assets/img/metroid gif.gif" alt=""></figure>
         </div>
-        <button type="submit">Enviar</button>
-    </form>
+
+        <button class="add-to-cart" data-product="Metroid">Adicionar ao Carrinho</button>
+
+        <div class="interaction-container">
+            <div class="ratings-container">
+                <h1>Avaliações</h1>
+                <p>Por favor, avalie nosso produto:</p>
+                <div class="star-rating">
+                    <input type="checkbox" id="star1" data-rating="1"/>
+                    <label for="star1">&#9733;</label>
+                    <input type="checkbox" id="star2" data-rating="2"/>
+                    <label for="star2">&#9733;</label>
+                    <input type="checkbox" id="star3" data-rating="3"/>
+                    <label for="star3">&#9733;</label>
+                    <input type="checkbox" id="star4" data-rating="4"/>
+                    <label for="star4">&#9733;</label>
+                    <input type="checkbox" id="star5" data-rating="5"/>
+                    <label for="star5">&#9733;</label>
+                </div>
+                <button type="submit">Enviar</button>
+            </div>
+
+            <div class="comments-container">
+                <h2>Deixe um Comentário</h2>
+                <form action="" method="post">
+                    <label for="comment">Comentário:</label>
+                    <textarea id="comment" name="comment" rows="4" required></textarea>
+                    <button type="submit">Enviar Comentário</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.adicionar-ao-carrinho').on('click', function() {
+      const produto = $(this).data('produto');
+
+      // Envie uma requisição POST para a rota '/adicionar-ao-carrinho'
+      $.post('/adicionar-ao-carrinho', { produto }, function(response) {
+        console.log(response); // Exiba a resposta no console (pode ser removido em produção)
+
+        // Verifica a resposta da rota
+        if (response.message.includes('sucesso')) {
+          // Se a resposta contiver 'sucesso', o produto foi adicionado com sucesso
+          alert('Produto adicionado ao carrinho com sucesso!');
+        } else if (response.message.includes('já está no carrinho')) {
+          // Se a resposta contiver 'já está no carrinho', exibe um alerta indicando que o produto já está no carrinho
+          alert('Este produto já está no carrinho.');
+        } else {
+          // Lógica para lidar com outras respostas (opcional)
+          console.log('Resposta não reconhecida:', response);
+        }
+        // Aqui você pode adicionar lógica adicional se necessário
+      });
+    });
+  });
+</script>
 </html>
