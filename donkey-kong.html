@@ -150,8 +150,8 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
   $(document).ready(function() {
-    $('.adicionar-ao-carrinho').on('click', function() {
-      const produto = $(this).data('produto');
+    $('.add-to-cart').on('click', function() {
+      const produto = $(this).data('product');
 
       // Envie uma requisição POST para a rota '/adicionar-ao-carrinho'
       $.post('/adicionar-ao-carrinho', { produto }, function(response) {
