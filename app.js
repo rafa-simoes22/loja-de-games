@@ -189,45 +189,77 @@ router.get('/perfil/:userId', function(req, res) {
         res.send(`
           <html>
             <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Perfil do Usuário</title>
-            </head>
-            <style>
+              <style>
                 body {
                   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                  color: #000;
+                  background-color: #f1ddbe;
+                  margin: 0;
+                  padding: 0;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  height: 100vh;
+                }
+                h1 {
+                  text-align: center;
+                  color: #a54928;
                 }
                 form {
-                  max-width: 300px;
+                  max-width: 400px;
+                  background-color: #f1ddbe;
+                  padding: 20px;
+                  border-radius: 8px;
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
                 }
                 label {
                   display: block;
-                  margin-bottom: 10px;
+                  margin-bottom: 8px;
+                  color: #555;
                 }
                 input {
                   width: 100%;
-                  padding: 8px;
-                  margin-bottom: 10px;
-                }
-                button {
-                  color: #000;
                   padding: 10px;
-                  border: none;
-                  cursor: pointer;
+                  margin-bottom: 16px;
+                  border: 1px solid #ccc;
+                  border-radius: 4px;
+                  box-sizing: border-box;
                 }
-            </style>
+          
+                button {
+                  background-color: #b44d3f;
+                  color: #fcfcfc;
+                  padding: 12px;
+                  border: none;
+                  border-radius: 4px;
+                  cursor: pointer;
+                  width: 100%;
+                  font-size: 16px;
+                }
+                button:hover {
+                  background-color: #a54928;
+                }
+                a {
+                  text-decoration: none;
+                }
+              </style>
+            </head>
             <body>
               <h1>Perfil do Usuário</h1>
               <form>
                 <label for="username">Nome de usuário:</label>
                 <input type="text" id="username" name="username" value="${user.nome}" readonly>
-                <br>
+          
                 <label for="email">E-mail:</label>
                 <input type="text" id="email" name="email" value="${user.email}" readonly>
-                <br>
+          
                 <a href="/perfil/editar/${userId}"><button type="button">Editar Perfil</button></a>
               </form>
             </body>
-          </html>
+        </html>
         `);
       } else {
         res.status(404).send('Usuário não encontrado.');
@@ -252,42 +284,77 @@ router.get('/perfil/editar/:userId', function(req, res) {
         res.send(`
           <html>
             <head>
-              <title>Editar Perfil</title>
-            </head>
-            <style>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Perfil do Usuário</title>
+              <style>
                 body {
                   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                  color: #000;
+                  background-color: #f1ddbe;
+                  margin: 0;
+                  padding: 0;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  height: 100vh;
+                }
+                h1 {
+                  text-align: center;
+                  color: #a54928;
                 }
                 form {
-                  max-width: 300px;
+                  max-width: 400px;
+                  background-color: #f1ddbe;
+                  padding: 20px;
+                  border-radius: 8px;
+                  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
                 }
                 label {
                   display: block;
-                  margin-bottom: 10px;
+                  margin-bottom: 8px;
+                  color: #555;
                 }
                 input {
-                  width: 80%;
-                  padding: 8px;
-                  margin-bottom: 20px;
+                  width: 100%;
+                  padding: 10px;
+                  margin-bottom: 16px;
+                  border: 1px solid #ccc;
+                  border-radius: 4px;
+                  box-sizing: border-box;
                 }
+          
                 #botão {
-                  margin-left: 3%;
+                  background-color: #b44d3f;
+                  color: #fcfcfc;
+                  padding: 12px;
+                  border: none;
+                  border-radius: 4px;
+                  cursor: pointer;
+                  width: 100%;
+                  font-size: 16px;
                 }
-            </style>
+                #botão:hover {
+                  background-color: #a54928;
+                }
+                a {
+                  text-decoration: none;
+                }
+              </style>
+            </head>
             <body>
-                <h1>Editar Perfil</h1>
-                <form action="/perfil/editar/${userId}" method="post">
-                  <label for="username">Nome de usuário:</label>
-                  <input type="text" id="username" name="username" value="${user.nome}">
-                  <br>
-                  <label for="email">E-mail:</label>
-                  <input type="text" id="email" name="email" value="${user.email}">
-                  <br>
-                  <label for="email">Senha:</label>
-                  <input type="text" id="senha" name="senha" value="${user.senha}">
-                  <input id="botão" type="submit" value="Salvar">
-                </form>
+              <h1>Editar Perfil</h1>
+              <form action="/perfil/editar/${userId}" method="post">
+                <label for="username">Nome de usuário:</label>
+                <input type="text" id="username" name="username" value="${user.nome}">
+                <br>
+                <label for="email">E-mail:</label>
+                <input type="text" id="email" name="email" value="${user.email}">
+                <br>
+                <label for="email">Senha:</label>
+                <input type="text" id="senha" name="senha" value="${user.senha}">
+                <input id="botão" type="submit" value="Salvar">
+              </form>
             </body>
           </html>
         `);
