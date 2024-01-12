@@ -8,65 +8,87 @@
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
-    /*---------------*/
-    .cont {
-        padding: 15px;
-        width: 850px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
     }
-    .cont img {
-        width: 200px;
-        margin-left: 35%;
-    }
-    .cont h2 {
-        font-size: 30px;
-    }
-    .prod {
+    .product {
         display: flex;
-        justify-content: space-evenly;  
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px;
     }
-    .prod button {
-        height: 10%;
+    .product-content {
+        flex: 1;
+        padding: 20px;
+    }
+    .product img {
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+    .product h2 {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+    .product p {
+        color: #555;
+    }
+    .add-to-cart {
         padding: 10px;
         background-color: #297fdb;
         color: #fff;
         border: none;
         border-radius: 4px;
         cursor: pointer;
-        margin-top: 15%;
     }
-    .prod button:hover {
+    .add-to-cart:hover {
         background-color: #0056b3;
     }
-    /*---------------*/
-    .intera {
+    .interaction-container {
         display: flex;
-        justify-content: space-around;
-        width: 800px;
-        margin-top: 3%;
-        margin-left: 17%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        justify-content: space-between;
+        margin-top: 20px;
     }
-    .aval {
-        max-width: 300px;
+    .ratings-container,
+    .comments-container {
+        flex: 1;
+        max-width: 400px;
         padding: 20px;
         background-color: #fff;
         border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        margin-right: 20px;
     }
-    #star-rating input[type="checkbox"] {
+    .comments-container form {
+        display: flex;
+        flex-direction: column;
+    }
+    .ratings-container h1,
+    .comments-container h2 {
+        text-align: center;
+        color: #333;
+    }
+    .star-rating input[type="checkbox"] {
         display: none;
     }
-    #star-rating label {
+    .star-rating label {
         cursor: pointer;
         font-size: 2em;
         color: #ccc;
         margin: 0 0.1em;
     }
-    #star-rating input[type="checkbox"]:checked + label {
-        color: #ffbf00; /* Cor quando a estrela está marcada */
+    .star-rating input[type="checkbox"]:checked + label {
+        color: #ffbf00;
     }
-    .aval button {
+    .interaction-container button {
         padding: 10px;
         background-color: #297fdb;
         color: #fff;
@@ -75,65 +97,28 @@
         cursor: pointer;
         margin-top: 15px;
     }
-    .aval button:hover {
-        background-color: #0056b3;
-    }
-    /*---------------*/
-    .comments-container {
-        max-width: 300px;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 8px;
-    }
-    .comments-container h2 {
-        text-align: center;
-        color: #333;
-    }
-    .comments-container form {
-        display: flex;
-        flex-direction: column;
-    }
-    .comments-container label {
-        margin-bottom: 8px;
-        color: #333;
-    }
-    .comments-container input,
-    textarea {
-        padding: 8px;
-        margin-bottom: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-    .comments-container button {
-        padding: 10px;
-        background-color: #297fdb;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-    }
-    .comments-container button:hover {
+    .interaction-container button:hover {
         background-color: #0056b3;
     }
 </style>
 <body>
-    <div class="prod">
-        <div class="cont">
-            <h2>Arcade Clássico</h2>
-            <h3>Pac-Man (1980):</h3>
-            <p>Pac-Man, criado pela Namco, é um ícone da cultura dos videogames. O jogador controla um amarelo e redondo personagem que deve comer pontos em um labirinto enquanto evita fantasmas. Simples, mas desafiador, Pac-Man tornou-se um fenômeno global e ainda é lembrado como um dos jogos mais influentes da história.</p>
-            <figure><img src="/assets/img/pac man gif.gif" alt=""></figure>
+    <div class="container">
+        <div class="product">
+            <div class="product-content">
+                <h2>Arcade Clássico</h2>
+                <h3>Pac-Man (1980):</h3>
+                <p>Pac-Man, criado pela Namco, é um ícone da cultura dos videogames. O jogador controla um amarelo e redondo personagem que deve comer pontos em um labirinto enquanto evita fantasmas. Simples, mas desafiador, Pac-Man tornou-se um fenômeno global e ainda é lembrado como um dos jogos mais influentes da história.</p>
+            </div>
+            <figure><img src="/assets/img/pac man gif.gif" alt="Pac-Man"></figure>
         </div>
-    
-        <button class="adicionar-ao-carrinho" data-produto="Pac-Man">Adicionar ao Carrinho</button>
-    </div>
 
-    <div class="intera">
-        <div class="aval">
-            <form action="" method="post">
+        <button class="add-to-cart" data-product="Pac-Man">Adicionar ao Carrinho</button>
+
+        <div class="interaction-container">
+            <div class="ratings-container">
                 <h1>Avaliações</h1>
                 <p>Por favor, avalie nosso produto:</p>
-                <div id="star-rating">
+                <div class="star-rating">
                     <input type="checkbox" id="star1" data-rating="1"/>
                     <label for="star1">&#9733;</label>
                     <input type="checkbox" id="star2" data-rating="2"/>
@@ -146,16 +131,16 @@
                     <label for="star5">&#9733;</label>
                 </div>
                 <button type="submit">Enviar</button>
-            </form>
-        </div>
+            </div>
 
-        <div class="comments-container">
-            <h2>Deixe um Comentário</h2>
-            <form action="" method="post">
-                <label for="comment">Comentário:</label>
-                <textarea id="comment" name="comment" rows="4" required></textarea>
-                <button type="submit">Enviar Comentário</button>
-            </form>
+            <div class="comments-container">
+                <h2>Deixe um Comentário</h2>
+                <form action="" method="post">
+                    <label for="comment">Comentário:</label>
+                    <textarea id="comment" name="comment" rows="4" required></textarea>
+                    <button type="submit">Enviar Comentário</button>
+                </form>
+            </div>
         </div>
     </div>
 </body>
@@ -180,7 +165,6 @@
           // Lógica para lidar com outras respostas (opcional)
           console.log('Resposta não reconhecida:', response);
         }
-
         // Aqui você pode adicionar lógica adicional se necessário
       });
     });
