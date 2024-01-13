@@ -79,18 +79,6 @@
         text-align: center;
         color: #a54928;
     }
-    .star-rating input[type="checkbox"] {
-        display: none;
-    }
-    .star-rating label {
-        cursor: pointer;
-        font-size: 2em;
-        color: #964136;
-        margin: 0 0.1em;
-    }
-    .star-rating input[type="checkbox"]:checked + label {
-        color: #ffbf00;
-    }
     .interaction-container button {
         padding: 10px;
         background-color: #b44d3f;
@@ -121,20 +109,23 @@
             <div class="ratings-container">
                 <h1>Avaliações</h1>
                 <p>Por favor, avalie nosso produto:</p>
-                <div class="star-rating">
-                    <input type="checkbox" id="star1" data-rating="1"/>
-                    <label for="star1">&#9733;</label>
-                    <input type="checkbox" id="star2" data-rating="1"/>
-                    <label for="star2">&#9733;</label>
-                    <input type="checkbox" id="star3" data-rating="1"/>
-                    <label for="star3">&#9733;</label>
-                    <input type="checkbox" id="star4" data-rating="1"/>
-                    <label for="star4">&#9733;</label>
-                    <input type="checkbox" id="star5" data-rating="1"/>
-                    <label for="star5">&#9733;</label>
-                </div>
-                <div class="ratings-card" id="resultCard"><!-- As avaliações serão exibidas aqui --></div>
-                <button type="button" onclick="enviarAvaliacao()">Enviar</button>
+                <a href="javascript:void(0)" onclick="Avaliar(1)">
+                    <img src="assets/img/star0.png" id="s1">
+                </a>
+                <a href="javascript:void(0)" onclick="Avaliar(2)">
+                    <img src="assets/img/star0.png" id="s2">
+                </a>
+                <a href="javascript:void(0)" onclick="Avaliar(3)">
+                    <img src="assets/img/star0.png" id="s3">
+                </a>
+                <a href="javascript:void(0)" onclick="Avaliar(4)">
+                    <img src="assets/img/star0.png" id="s4">
+                </a>
+                <a href="javascript:void(0)" onclick="Avaliar(5)">
+                    <img src="assets/img/star0.png" id="s5">
+                </a>
+                <p id="rating"></p>
+                <button onclick="mostrarAvaliacao()">Avaliar</button>
             </div>
 
             <div class="comments-container">
@@ -176,16 +167,110 @@
   });
 </script>
 <script>
-    function enviarAvaliacao() {
-        // Coletar as checkboxes marcadas
-        const checkboxes = document.querySelectorAll('.star-rating input[type="checkbox"]:checked');
+    var avaliacao = 0;
 
-        // Calcular a quantidade total de checkboxes marcadas
-        const quantidade = checkboxes.length;
+    function Avaliar(estrela) {
 
-        // Exibir a quantidade total em outro card
-        const resultCard = document.getElementById('resultCard');
-        resultCard.innerHTML = `<h4>Avaliação do Produto: ${quantidade}</h4>`;
+        var url = window.location;
+        url = url.toString()
+        url = url.split("pac-man.html");
+        url = url[0];
+
+        var s1 = document.getElementById("s1").src;
+        var s2 = document.getElementById("s2").src;
+        var s3 = document.getElementById("s3").src;
+        var s4 = document.getElementById("s4").src;
+        var s5 = document.getElementById("s5").src;
+
+        //ESTRELA 5
+        if (estrela == 5){        
+        if (s5 == url + "assets/img/star0.png") {
+            document.getElementById("s1").src = "assets/img/star1.png";
+            document.getElementById("s2").src = "assets/img/star1.png";
+            document.getElementById("s3").src = "assets/img/star1.png";
+            document.getElementById("s4").src = "assets/img/star1.png";
+            document.getElementById("s5").src = "assets/img/star1.png";
+            avaliacao = 5;
+        } else {
+            document.getElementById("s1").src = "assets/img/star1.png";
+            document.getElementById("s2").src = "assets/img/star1.png";
+            document.getElementById("s3").src = "assets/img/star1.png";
+            document.getElementById("s4").src = "assets/img/star1.png";
+            document.getElementById("s5").src = "assets/img/star0.png";
+            avaliacao = 4;
+        }}
+        //ESTRELA 4
+        if (estrela == 4){  
+        if (s4 == url + "assets/img/star0.png") {
+            document.getElementById("s1").src = "assets/img/star1.png";
+            document.getElementById("s2").src = "assets/img/star1.png";
+            document.getElementById("s3").src = "assets/img/star1.png";
+            document.getElementById("s4").src = "assets/img/star1.png";
+            document.getElementById("s5").src = "assets/img/star0.png";
+            avaliacao = 4;
+        } else {
+            document.getElementById("s1").src = "assets/img/star1.png";
+            document.getElementById("s2").src = "assets/img/star1.png";
+            document.getElementById("s3").src = "assets/img/star1.png";
+            document.getElementById("s4").src = "assets/img/star0.png";
+            document.getElementById("s5").src = "assets/img/star0.png";
+            avaliacao = 3;
+        }}
+        //ESTRELA 3
+        if (estrela == 3){  
+        if (s3 == url + "assets/img/star0.png") {
+            document.getElementById("s1").src = "assets/img/star1.png";
+            document.getElementById("s2").src = "assets/img/star1.png";
+            document.getElementById("s3").src = "assets/img/star1.png";
+            document.getElementById("s4").src = "assets/img/star0.png";
+            document.getElementById("s5").src = "assets/img/star0.png";
+            avaliacao = 3;
+        } else {
+            document.getElementById("s1").src = "assets/img/star1.png";
+            document.getElementById("s2").src = "assets/img/star1.png";
+            document.getElementById("s3").src = "assets/img/star0.png";
+            document.getElementById("s4").src = "assets/img/star0.png";
+            document.getElementById("s5").src = "assets/img/star0.png";
+            avaliacao = 2;
+        }}
+        //ESTRELA 2
+        if (estrela == 2){  
+        if (s2 == url + "assets/img/star0.png") {
+            document.getElementById("s1").src = "assets/img/star1.png";
+            document.getElementById("s2").src = "assets/img/star1.png";
+            document.getElementById("s3").src = "assets/img/star0.png";
+            document.getElementById("s4").src = "assets/img/star0.png";
+            document.getElementById("s5").src = "assets/img/star0.png";
+            avaliacao = 2;
+        } else {
+            document.getElementById("s1").src = "assets/img/star1.png";
+            document.getElementById("s2").src = "assets/img/star0.png";
+            document.getElementById("s3").src = "assets/img/star0.png";
+            document.getElementById("s4").src = "assets/img/star0.png";
+            document.getElementById("s5").src = "assets/img/star0.png";
+            avaliacao = 1;
+        }}
+        //ESTRELA 1
+        if (estrela == 1){  
+        if (s1 == url + "assets/img/star0.png") {
+            document.getElementById("s1").src = "assets/img/star1.png";
+            document.getElementById("s2").src = "assets/img/star0.png";
+            document.getElementById("s3").src = "assets/img/star0.png";
+            document.getElementById("s4").src = "assets/img/star0.png";
+            document.getElementById("s5").src = "assets/img/star0.png";
+            avaliacao = 1;
+        } else {
+            document.getElementById("s1").src = "assets/img/star0.png";
+            document.getElementById("s2").src = "assets/img/star0.png";
+            document.getElementById("s3").src = "assets/img/star0.png";
+            document.getElementById("s4").src = "assets/img/star0.png";
+            document.getElementById("s5").src = "assets/img/star0.png";
+            avaliacao = 0;
+        }}
+    }
+
+    function mostrarAvaliacao() {
+        document.getElementById('rating').innerHTML = "Avaliação do Produto: " + avaliacao;
     }
 </script>
 <script>
