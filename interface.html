@@ -7,10 +7,10 @@
 </head>
 <style>
     .produtos {
-       display: flex;
-       justify-content: space-around;
-       margin-top: 5px;
-       padding: 30px;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 5px;
+        padding: 30px;
     }
     .produto {
         width: 250px;
@@ -34,6 +34,18 @@
         background-color: #b44d3f;
         color: black;
         cursor: pointer;
+    }
+    @media (max-width: 600px) {
+        .produtos {
+            flex-direction: column;
+            align-items: center;
+        }
+        .produto {
+            margin-bottom: 20px;
+        }
+        .produto img {
+            margin-left: 25%;
+        }
     }
     nav {
         padding: 10px 20px;
